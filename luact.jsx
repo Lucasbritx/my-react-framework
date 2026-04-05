@@ -1,4 +1,4 @@
-const TEXT_ELEMENT = "TEXT_ELEMENT"
+const TEXT_ELEMENT = "TEXT_ELEMENT";
 
 function createTextElement(text) {
   return {
@@ -7,7 +7,7 @@ function createTextElement(text) {
       nodeValue: text,
       children: [],
     },
-  }
+  };
 }
 
 function createElement(type, props, ...children) {
@@ -15,14 +15,31 @@ function createElement(type, props, ...children) {
     type,
     props: {
       ...props,
-       children: children.map(child =>
-        typeof child === "object"
-          ? child
-          : createTextElement(child)
+      children: children.map((child) =>
+        typeof child === "object" ? child : createTextElement(child),
       ),
     },
-  }
+  };
 }
+
+function render(element, container) {
+  const dom =
+    element.type == TEXT_ELEMENT
+      ? document.createTextNode("")
+      : document.createElement(element.type);
+
+  const isProperty = (key) => key !== "children";
+  Object.keys(element.props)
+    .filter(isProperty)
+    .forEach((name) => {
+      dom[name] = element.props[name];
+    });
+
+  element.props.children.forEach((child) => render(child, dom));
+  container.appendChild(dom);
+}
+
 export const Luact = {
   createElement,
-}
+  render,
+};
