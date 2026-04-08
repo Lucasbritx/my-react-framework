@@ -68,10 +68,6 @@ function performUnitOfWork(nextUnitOfWork) {
     fiber.dom = createDom(fiber)
   }
 
-  if (fiber.parent) {
-    fiber.parent.dom.appendChild(fiber.dom)
-  }
-
   const elements = fiber.props.children
   let index = 0
   let prevSibling = null
