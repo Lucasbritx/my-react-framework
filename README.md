@@ -25,4 +25,4 @@ npm run build
 ```
 
 ## Codesandbox link
-https://codesandbox.io/p/github/Lucasbritx/my-react-framework/main?import=true&workspaceId=ws_XRL22E6w8Dsw2XGjtSQoLZ
+https://codesandbox.io/p/github/Lucasbritx/my-react-framework/main?import=true
