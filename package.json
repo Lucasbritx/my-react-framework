@@ -1,0 +1,27 @@
+{
+  "name": "my-react-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild index.jsx --bundle --outfile=dist/bundle.js --jsx-factory=Luact.createElement --loader:.jsx=jsx",
+    "dev": "esbuild index.jsx --bundle --outfile=dist/bundle.js --jsx-factory=Luact.createElement --loader:.jsx=jsx --servedir=. --watch",
+    "start": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucasbritx/my-react-framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Lucasbritx/my-react-framework/issues"
+  },
+  "homepage": "https://github.com/Lucasbritx/my-react-framework#readme",
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}
