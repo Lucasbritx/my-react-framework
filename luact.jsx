@@ -87,7 +87,7 @@ function commitWork(fiber) {
   while (!domParentFiber.dom) {
     domParentFiber = domParentFiber.parent;
   }
-  const domParent = fiber.parent.dom;
+  const domParent = domParentFiber.dom;
   if (fiber.effectTag === "PLACEMENT" && fiber.dom != null) {
     domParent.appendChild(fiber.dom);
   } else if (fiber.effectTag === "UPDATE" && fiber.dom != null) {
@@ -145,9 +145,9 @@ function performUnitOfWork(fiber) {
     updateFunctionComponent(fiber);
   } else {
     updateHostComponent(fiber);
-  }
-  if (!fiber.dom) {
-    fiber.dom = createDom(fiber);
+    if (!fiber.dom) {
+      fiber.dom = createDom(fiber);
+    }
   }
 
   const elements = fiber.props.children;
