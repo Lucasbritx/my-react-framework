@@ -150,9 +150,6 @@ function performUnitOfWork(fiber) {
     }
   }
 
-  const elements = fiber.props.children;
-  reconcileChildren(fiber, elements);
-
   if (fiber.child) {
     return fiber.child;
   }
